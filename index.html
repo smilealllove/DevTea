@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="manifest" href="manifest.json">
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log("Service Worker Registered"));
+    }
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tea Shop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Tea Shop</h1>
+    </header>
+    
+    <section id="menu">
+        <h2>Menu</h2>
+        <div class="item">
+            <span>Masala Tea</span>
+            <button onclick="addToOrder('Masala Tea', 20)">Order ₹20</button>
+        </div>
+        <div class="item">
+            <span>Ginger Tea</span>
+            <button onclick="addToOrder('Ginger Tea', 25)">Order ₹25</button>
+        </div>
+        <div class="item">
+            <span>Black Tea</span>
+            <button onclick="addToOrder('Black Tea', 15)">Order ₹15</button>
+        </div>
+    </section>
+ 
+    <section id="order-summary">
+        <h2>Order Summary</h2>
+        <ul id="order-list"></ul>
+        <button onclick="sendOrder()">Send Order via WhatsApp</button>
+    </section>
+ 
+    <script src="script.js"></script>
+</body>
+</html>
